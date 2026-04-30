@@ -33,3 +33,7 @@
 .slidev-layout.default ol {
   text-align: left;
 }
+
+.slidev-vclick-target {
+  transition: none !important;
+}
