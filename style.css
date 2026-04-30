@@ -1,0 +1,12 @@
+.slidev-layout.default:not(.white-slide),
+.slidev-layout.center:not(.white-slide) {
+  &[style*='background'] {
+    h1, h2, h3, p, li {
+      color: white;
+    }
+
+    h1 + p {
+      opacity: 1;
+    }
+  }
+}
