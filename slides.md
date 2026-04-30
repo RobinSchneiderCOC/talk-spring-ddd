@@ -1,5 +1,4 @@
 ---
-theme: seriph
 title: Talk Spring DDD
 titleTemplate: '%s'
 transition: fade
