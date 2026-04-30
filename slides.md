@@ -1,9 +1,11 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Spring DDD
+title: Talk Spring DDD
+titleTemplate: '%s'
 class: text-center
-transition: slide-left
+transition: fade
+favicon: '/favicon.svg'
 ---
 
 # Spring DDD
