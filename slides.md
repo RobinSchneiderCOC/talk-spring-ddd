@@ -1,27 +1,24 @@
 ---
 theme: seriph
-background: /images/coc-background-blue.png
 title: Talk Spring DDD
 titleTemplate: '%s'
-class: text-center
 transition: fade
 favicon: '/images/spring-logo.svg'
+layout: blue
 ---
 
-# Spring DDD
+# Vom Spaghetti-Code zur Zwiebel: <br> Spring Boot gewürzt mit DDD
 
 ---
-background: /images/coc-background-blue.png
-layout: center
+layout: blue
 ---
 
 # Wie modelliert man Fachlichkeit im Backend?
 
-Damit die Fachlichkeit besser sichtbar wird, um die Wartbarkeit des Backends zu erhöhen.
+Damit die Fachlichkeit besser sichtbar wird, <br> um die Wartbarkeit des Backends zu erhöhen.
 
 ---
-background: /images/coc-background-blue.png
-layout: center
+layout: blue
 ---
 
 # Agenda
@@ -34,9 +31,7 @@ layout: center
 6. Fazit
 
 ---
-background: none
-layout: center
+layout: white
 ---
-Test
 
-<img src="/images/coc-logo-blue.png" class="absolute top-4 right-6 h-10" />
+Test

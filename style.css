@@ -10,3 +10,8 @@
     }
   }
 }
+
+.slidev-layout.default ul,
+.slidev-layout.default ol {
+  text-align: left;
+}
