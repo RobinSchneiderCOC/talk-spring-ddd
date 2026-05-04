@@ -33,20 +33,51 @@ layout: blue
 </v-clicks>
 
 ---
+layout: blue
+---
+
+# Problemstellung
+
+---
 layout: white
 ---
 
 <ImageSlide>
   <template #title>
-    <h1 class="text-2xl font-bold">Kapitel-Name</h1>
-    <p class="text-base mt-1 opacity-60">Aktueller Bereich</p>
+    <h2 class="text-2xl font-bold leading-none">Problemstellung (Ausgangslage)</h2>
+    <p class="text-base !mt-0 opacity-60">Backend-Anwendungen werden intern schlecht wartbar</p>
   </template>
   <template #image>
-    <img src="/drawio/4-Innere-Struktur-Action-API.drawio.svg" class="w-full h-full object-contain dark:invert" />
+    <img src="/drawio/1-Problemstellung-Ausgangslage.drawio.svg" class="w-[80%] h-[80%] object-contain object-left dark:invert" />
   </template>
   <template #content>
-    <div><strong>Test</strong> Das ist ein Test</div>
-    <div><strong>Test</strong> Das ist ein Test</div>
-    <div><strong>Test</strong> Das ist ein Test</div>
+    <ul class="list-disc list-inside flex flex-col gap-2">
+      <li>Fachlichkeit in vielen Service-Klassen verteilt</li>
+      <li>unübersichtlich</li>
+      <li>viele Querverbindungen</li>
+      <li>unklare Zuständigkeiten</li>
+      <li>technisch getriebener Aufbau &amp; Namen</li>
+    </ul>
+  </template>
+</ImageSlide>
+
+---
+layout: white
+---
+
+<ImageSlide>
+  <template #title>
+    <h2 class="text-2xl font-bold leading-none">Problemstellung (Ziel)</h2>
+    <p class="text-base !mt-0 opacity-60">Fachlich gut wartbare/verständliche Backend-Anwendung</p>
+  </template>
+  <template #image>
+    <img src="/drawio/1-Problemstellung-Ziel.drawio.svg" class="w-[80%] h-[80%] object-contain object-left dark:invert" />
+  </template>
+  <template #content>
+    <ul class="list-disc list-inside flex flex-col gap-2">
+      <li>Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow</li>
+      <li>Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen</li>
+      <li>Ausnahme: einfach CRUD-App</li>
+    </ul>
   </template>
 </ImageSlide>
