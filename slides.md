@@ -237,10 +237,10 @@ notes:
 ---
 layout: image-slide
 heading: Fazit
-subtitle: "Beispiel: DDD + Clean/Onion-Arc + Java/Spring-Boot"
+subtitle: "Beispiel: DDD + Java/Spring-Boot"
 image: /drawio/6-Fazit-Beispiel-Robin.drawio.svg
 notes:
-  - "siehe auch weitere Beispiele hier:"
+  - "siehe auch weitere Beispiele (mit Onion-Struktur) hier:"
   - "https://github.com/maciejwalkowiak/implementing-ddd-with-spring-talk"
   - "https://github.com/mattiacirioloWS/spring-io-conf-25"
 ---
