@@ -42,42 +42,30 @@ layout: blue
 layout: white
 ---
 
-<ImageSlide>
-  <template #title>
-    <h2 class="text-2xl font-bold leading-none">Problemstellung (Ausgangslage)</h2>
-    <p class="text-base !mt-0 opacity-60">Backend-Anwendungen werden intern schlecht wartbar</p>
-  </template>
-  <template #image>
-    <img src="/drawio/1-Problemstellung-Ausgangslage.drawio.svg" class="w-[80%] h-[80%] object-contain object-left dark:invert" />
-  </template>
-  <template #content>
-    <ul class="list-disc list-inside flex flex-col gap-2">
-      <li>Fachlichkeit in vielen Service-Klassen verteilt</li>
-      <li>unübersichtlich</li>
-      <li>viele Querverbindungen</li>
-      <li>unklare Zuständigkeiten</li>
-      <li>technisch getriebener Aufbau &amp; Namen</li>
-    </ul>
-  </template>
-</ImageSlide>
+<ImageSlide
+  title="Problemstellung (Ausgangslage)"
+  subtitle="Backend-Anwendungen werden intern schlecht wartbar"
+  image="/drawio/1-Problemstellung-Ausgangslage.drawio.svg"
+  :notes="[
+    'Fachlichkeit in vielen Service-Klassen verteilt',
+    'unübersichtlich',
+    'viele Querverbindungen',
+    'unklare Zuständigkeiten',
+    'technisch getriebener Aufbau &amp; Namen',
+  ]"
+/>
 
 ---
 layout: white
 ---
 
-<ImageSlide>
-  <template #title>
-    <h2 class="text-2xl font-bold leading-none">Problemstellung (Ziel)</h2>
-    <p class="text-base !mt-0 opacity-60">Fachlich gut wartbare/verständliche Backend-Anwendung</p>
-  </template>
-  <template #image>
-    <img src="/drawio/1-Problemstellung-Ziel.drawio.svg" class="w-[80%] h-[80%] object-contain object-left dark:invert" />
-  </template>
-  <template #content>
-    <ul class="list-disc list-inside flex flex-col gap-2">
-      <li>Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow</li>
-      <li>Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen</li>
-      <li>Ausnahme: einfach CRUD-App</li>
-    </ul>
-  </template>
-</ImageSlide>
+<ImageSlide
+  title="Problemstellung (Ziel)"
+  subtitle="Fachlich gut wartbare/verständliche Backend-Anwendung"
+  image="/drawio/1-Problemstellung-Ziel.drawio.svg"
+  :notes="[
+    'Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow',
+    'Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen',
+    'Ausnahme: einfach CRUD-App',
+  ]"
+/>
