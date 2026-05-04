@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const base = import.meta.env.BASE_URL
 defineProps<{ heading: string; subtitle?: string; image: string; notes?: string[] }>()
+
+function linkify(text: string) {
+  return text.replace(
+    /(https?:\/\/[^\s]+)/g,
+    '<a href="$1" target="_blank" class="opacity-70">$1</a>'
+  )
+}
 </script>
 
 <template>
@@ -22,7 +29,7 @@ defineProps<{ heading: string; subtitle?: string; image: string; notes?: string[
         </div>
         <div class="relative w-1/4 self-start border-2 border-slate-300 rounded-2xl p-5 flex flex-col gap-4 text-xs text-gray-800 dark:text-white dark:border-white/30">
           <ContentList v-if="notes">
-            <li v-for="item in notes" :key="item" v-html="item" />
+            <li v-for="item in notes" :key="item" v-html="linkify(item)" />
           </ContentList>
           <slot v-else />
         </div>

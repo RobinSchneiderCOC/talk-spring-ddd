@@ -61,3 +61,216 @@ notes:
   - Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen
   - Ausnahme? <br>  einfach CRUD-App
 ---
+
+---
+layout: blue
+---
+
+# Fachsprache im Code abbilden
+
+---
+layout: image-slide
+heading: Fachsprache im Code abbilden
+subtitle: Namensgebung gemäß Fachexperten
+image: /drawio/2-Fachsprache-im-Code-abbilden.drawio.svg
+notes:
+  - Mit Fachexperten reden (+ Glossar)
+  - Nomen und Verben fachlich (+ deutsch), z.B. Buch ausleihen, statt update Book
+  - kein mentales Mapping mehr, Missverständnisse reduzieren
+  - 'DDD: "Ubiquitous Language"'
+---
+
+---
+layout: blue
+---
+
+# Äußere Struktur schaffen
+
+---
+layout: image-slide
+heading: Äußere Struktur schaffen
+subtitle: Fachliche Module schneiden
+image: /drawio/3-Aeussere-Struktur-Fachliche-Module.drawio.svg
+notes:
+  - Gibt es fachliche Grenzen (Bounded Contexts)?
+  - Eigene top-level Packages, z.B. „Bestellung" oder „Lieferung"
+  - Spring Modulith prüft Grenzen
+  - Microservices?
+  - 'DDD: "Strategisches Design"'
+---
+
+---
+layout: blue
+---
+
+# Innere Struktur schaffen
+
+---
+layout: image-slide
+heading: Innere Struktur schaffen
+subtitle: "Vorarbeit: Refactoring von bestehenden Service-Klassen"
+image: /drawio/4-Innere-Struktur-Refactoring.drawio.svg
+notes:
+  - Vor dem Umbau erst einmal aufräumen & vereinfachen
+  - Klassen mit ähnlichen fachlichen Aufgaben zusammen ziehen
+  - Klassen, die nur weiterleiten, entfernen
+---
+
+---
+layout: image-slide
+heading: Innere Struktur schaffen
+subtitle: Logik aus Service-Klassen herausziehen
+image: /drawio/4-Innere-Struktur-Logik-herausziehen.drawio.svg
+notes:
+  - Orchestrierung in Use Cases verschieben
+  - Validierungsregeln in Entities verschieben
+  - übrig bleiben kleine Domain-Services
+  - "Vorteil: klare Zuständigkeiten, nachvollziehbarer Call-Flow"
+---
+
+---
+layout: image-slide
+heading: Innere Struktur schaffen
+subtitle: Domain modellieren
+image: /drawio/4-Innere-Struktur-Domain-modellieren.drawio.svg
+notes:
+  - "bereits da: Logik in Entity und fachliche Namen für Methoden (keine Setter)"
+  - Einführung von Value Objects, z.B. „Geld" oder „EmailAdresse"
+  - Aggregates schneiden
+  - 'DDD: "Taktisches Design"'
+---
+
+---
+layout: image-slide
+heading: Innere Struktur schaffen
+subtitle: Domain-driven REST-API
+image: /drawio/4-Innere-Struktur-Action-API.drawio.svg
+notes:
+  - Trigger der Use Cases über Action-Endpunkte
+  - Verben nutzen statt 100%-RESTful z.B. /publish
+  - Fachlichkeit statt CRUD
+  - Prozesse statt Resourcen/Daten
+  - Commands in CQRS
+---
+
+---
+layout: image-slide
+heading: Innere Struktur schaffen
+subtitle: Zwischenziel erreicht
+image: /drawio/4-Innere-Struktur-Zwischenziel.drawio.svg
+notes:
+  - Code ist übersichtlicher und fachlich orientiert
+  - Bis hier genügt es in vielen Projekten
+  - "aber: Kopplung an Infrastruktur noch vorhanden (ist das schlimm?)"
+---
+
+---
+layout: blue
+---
+
+# Kopplung an Technik entfernen
+
+---
+layout: image-slide
+heading: Kopplung an Technik entfernen
+subtitle: Welche Verbindungen zur Technik gibt es?
+image: /drawio/5-Kopplung-an-Technik-entfernen-Verbindungen.drawio.svg
+notes:
+  - Eingehende Aufrufe sind unproblematisch (API zu Business)
+  - Ausgehende Aufrufe erzeugen Kopplung an Technik (Business zu Persistenz bzw Service-Client)
+  - "Lösung: Abhängigkeiten umdrehen (DIP)"
+---
+
+---
+layout: image-slide
+heading: Kopplung an Technik entfernen
+subtitle: API-Client auftrennen
+image: /drawio/5-Kopplung-an-Technik-entfernen-API-Client.drawio.svg
+notes:
+  - Der fachliche Kern sollte nicht direkt von Infrastruktur abhängen
+  - Entkopplung der API-Clients über Interfaces (Ports)
+  - Implementierung (Adapters) kann sich beliebig ändern
+  - Hexagonale Architektur
+---
+
+---
+layout: image-slide
+heading: Kopplung an Technik entfernen
+subtitle: Persistenz auftrennen
+image: /drawio/5-Kopplung-an-Technik-entfernen-Persistenz.drawio.svg
+notes:
+  - Die Entities hängen noch von der Infrastruktur ab (zb JPA)
+  - Entities & Repositories auftrennen
+  - Mapping notwendig!
+  - Code wird aufgebläht (Dopplungen)
+---
+
+---
+layout: image-slide
+heading: Kopplung an Technik entfernen
+subtitle: "Konsequenz: Projektstruktur ändern"
+image: /drawio/5-Kopplung-an-Technik-entfernen-Onion.drawio.svg
+notes:
+  - Packages umbenennen, Klassen verschieben
+  - Ringe statt Schichten
+  - es ergibt sich ein Onion/Clean-Aufbau samt Hexagonaler Architektur
+---
+
+---
+layout: blue
+---
+
+# Fazit
+
+---
+layout: image-slide
+heading: Fazit
+subtitle: Evolution des Backend-Services
+image: /drawio/6-Fazit-Spaghetti-zu-Onion.drawio.svg
+notes:
+  - kein Big-Bang notwendig
+  - Fachlichkeit in Code sichtbar gemacht
+  - Architektur leicht angepasst
+  - "Vorteil: besser wartbar für Entwickler, langfristig stabil"
+---
+
+---
+layout: image-slide
+heading: Fazit
+subtitle: "Beispiel: DDD + Clean/Onion-Arc + Java/Spring-Boot"
+image: /drawio/6-Fazit-Beispiel-Robin.drawio.svg
+notes:
+  - "siehe auch weitere Beispiele hier:"
+  - "https://github.com/maciejwalkowiak/implementing-ddd-with-spring-talk"
+  - "https://github.com/mattiacirioloWS/spring-io-conf-25"
+---
+
+---
+layout: image-slide
+heading: Fazit
+subtitle: Layered Arc vs Onion/Hex-Arc
+image: /drawio/6-Fazit-Layer-vs-Onion.drawio.svg
+notes:
+  - Kein großer Unterschied, Abhängigkeit wird lediglich gedreht über Interface
+  - Konzept bzw Ordner-Namen zweitrangig, Fokus auf äußere fachliche Module
+  - "Oliver Drotbohm: https://youtu.be/U6QLMCQKGtU?t=877"
+---
+
+---
+layout: image-slide
+heading: Fazit
+subtitle: "Empfehlung: einfach starten"
+image: /drawio/6-Fazit-Empfehlung-Robin.drawio.svg
+notes:
+  - Module einführen
+  - Layer beibehalten
+  - Use Cases herausziehen
+  - Kopplung an Spring Boot ist in Ordnung, Entity nicht auftrennen, aber mit Logik
+  - Fachliche Namen für Klassen und Methoden
+---
+
+---
+layout: blue
+---
+
+# Ende
