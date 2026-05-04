@@ -39,33 +39,25 @@ layout: blue
 # Problemstellung
 
 ---
-layout: white
+layout: image-slide
+heading: Problemstellung (Ausgangslage)
+subtitle: Backend-Anwendungen werden intern schlecht wartbar
+image: /drawio/1-Problemstellung-Ausgangslage.drawio.svg
+notes:
+  - Fachlichkeit in vielen Service-Klassen verteilt
+  - unübersichtlich
+  - viele Querverbindungen
+  - unklare Zuständigkeiten
+  - technisch getriebener Aufbau & Namen
 ---
 
-<ImageSlide
-  title="Problemstellung (Ausgangslage)"
-  subtitle="Backend-Anwendungen werden intern schlecht wartbar"
-  image="/drawio/1-Problemstellung-Ausgangslage.drawio.svg"
-  :notes="[
-    'Fachlichkeit in vielen Service-Klassen verteilt',
-    'unübersichtlich',
-    'viele Querverbindungen',
-    'unklare Zuständigkeiten',
-    'technisch getriebener Aufbau &amp; Namen',
-  ]"
-/>
-
 ---
-layout: white
+layout: image-slide
+heading: Problemstellung (Ziel)
+subtitle: Fachlich gut wartbare/verständliche Backend-Anwendung
+image: /drawio/1-Problemstellung-Ziel.drawio.svg
+notes:
+  - Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow
+  - Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen
+  - Ausnahme? <br>  einfach CRUD-App
 ---
-
-<ImageSlide
-  title="Problemstellung (Ziel)"
-  subtitle="Fachlich gut wartbare/verständliche Backend-Anwendung"
-  image="/drawio/1-Problemstellung-Ziel.drawio.svg"
-  :notes="[
-    'Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow',
-    'Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen',
-    'Ausnahme: einfach CRUD-App',
-  ]"
-/>
