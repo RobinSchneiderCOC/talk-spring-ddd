@@ -1,7 +1,7 @@
 ---
 title: Talk Spring DDD
 titleTemplate: '%s'
-favicon: '/images/spring-logo.svg'
+favicon: 'images/spring-logo.svg'
 layout: blue
 ---
 
