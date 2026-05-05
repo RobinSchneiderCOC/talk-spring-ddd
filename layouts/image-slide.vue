@@ -25,7 +25,7 @@ function linkify(text: string) {
       </div>
       <div class="relative flex flex-1 gap-6 mt-6">
         <div class="flex-[2] flex flex-col gap-4">
-          <img :src="`${base}${image.replace(/^\//, '')}`" class="w-[80%] h-[80%] object-contain object-left dark:invert" />
+          <img :src="`${base}${image.replace(/^\//, '')}`" class="w-[80%] h-[80%] object-contain object-left dark:invert" style="color-scheme: light" />
         </div>
         <div class="relative w-1/4 self-start border-2 border-slate-300 rounded-2xl p-5 flex flex-col gap-4 text-xs text-gray-800 dark:text-white dark:border-white/30">
           <ContentList v-if="notes">
