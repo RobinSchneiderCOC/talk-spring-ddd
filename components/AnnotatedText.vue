@@ -3,6 +3,13 @@ import { computed } from 'vue'
 
 const props = defineProps<{ text: string }>()
 
+function linkify(text: string) {
+  return text.replace(
+    /(https?:\/\/[^\s<]+)/g,
+    '<a href="$1" target="_blank" class="opacity-70 break-all">$1</a>'
+  )
+}
+
 const parts = computed(() => {
   const result: { text: string; marked: boolean; type?: string; delay?: number }[] = []
   const regex = /(__(.+?)(?:\|(\d+))?__)|\(\((.+?)(?:\|(\d+))?\)\)/g
@@ -28,6 +35,6 @@ const parts = computed(() => {
   <template v-for="(part, i) in parts" :key="i">
     <RoughAnnotation v-if="part.marked" :type="part.type" :delay="part.delay" :padding="part.type === 'circle' ? [6, 10] : 2">{{ part.text }}</RoughAnnotation>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <span v-else v-html="part.text" />
+    <span v-else v-html="linkify(part.text)" />
   </template>
 </template>
