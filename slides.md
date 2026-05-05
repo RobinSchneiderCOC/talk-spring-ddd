@@ -55,7 +55,7 @@ notes:
 
 <template #overlay>
   <FancyArrow
-    from="[data-id=subtitle-anchor]@right"
+    from="[data-id=subtitle]@right"
     to="[data-id=notes-box]@top-left"
     color="orange"
     width="3"
@@ -284,7 +284,7 @@ notes:
 
 <template #overlay>
   <FancyArrow
-    from="[data-id=subtitle-anchor]@right"
+    from="[data-id=subtitle]@right"
     to="[data-id=notes-box]@top-left"
     color="orange"
     width="3"
