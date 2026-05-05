@@ -22,12 +22,12 @@ defineProps<{ heading: string; subtitle?: string; image: string; notes?: string[
         </div>
       </div>
       <div class="relative flex flex-1 gap-6 mt-6">
-        <div data-id="img-area" class="flex-[2] flex flex-col gap-4">
+        <div class="flex-[2] flex flex-col gap-4">
           <img data-id="svg-image" :src="`${base}${image.replace(/^\//, '')}`" class="w-[80%] h-[80%] object-contain object-left dark:invert" style="color-scheme: light" />
         </div>
         <div data-id="notes-box" class="relative w-1/4 self-start border-2 border-slate-300 rounded-2xl p-5 flex flex-col gap-4 text-xs text-gray-800 dark:text-white dark:border-white/30">
           <ContentList v-if="notes">
-            <li v-for="(item, i) in notes" :key="item" :data-id="i === 0 ? 'first-note' : undefined">
+            <li v-for="item in notes" :key="item">
               <AnnotatedText :text="item" />
             </li>
           </ContentList>
