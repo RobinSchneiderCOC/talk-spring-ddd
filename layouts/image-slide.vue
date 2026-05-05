@@ -10,7 +10,7 @@ defineProps<{ heading: string; subtitle?: string; image: string; notes?: string[
         <div class="flex-[2]">
           <h2 class="text-2xl font-bold leading-none">{{ heading }}</h2>
           <slot name="subtitle">
-            <p v-if="subtitle" data-id="subtitle" class="text-base !mt-0 text-slate-500 dark:text-slate-400 w-fit pr-2">
+            <p v-if="subtitle" data-id="subtitle" class="text-base !mt-0 text-slate-500 dark:text-slate-400 w-fit pr-2 whitespace-nowrap">
               <AnnotatedText :text="subtitle" />
             </p>
           </slot>
