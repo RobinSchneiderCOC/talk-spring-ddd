@@ -3,6 +3,8 @@ title: Talk Spring DDD
 titleTemplate: '%s'
 favicon: 'images/spring-logo.svg'
 layout: blue
+addons:
+  - fancy-arrow
 ---
 
 # Vom Spaghetti-Code zur Zwiebel: <br> Spring Boot gewürzt mit DDD
@@ -41,7 +43,7 @@ layout: blue
 ---
 layout: image-slide
 heading: Problemstellung (Ausgangslage)
-subtitle: Backend-Anwendungen werden intern schlecht wartbar
+subtitle: Backend-Anwendungen werden __intern schlecht wartbar|2000__
 image: /drawio/1-Problemstellung-Ausgangslage.drawio.svg
 notes:
   - Fachlichkeit in vielen Service-Klassen verteilt
@@ -51,15 +53,26 @@ notes:
   - technisch getriebener Aufbau & Namen
 ---
 
+<template #overlay>
+  <FancyArrow
+    from="[data-id=subtitle-anchor]@right"
+    to="[data-id=notes-box]@top-left"
+    color="orange"
+    width="3"
+    duration="2000"
+    delay="4000"
+  />
+</template>
+
 ---
 layout: image-slide
 heading: Problemstellung (Ziel)
-subtitle: Fachlich gut wartbare/verständliche Backend-Anwendung
+subtitle: Fachlich gut __wartbare/verständliche|2000__ Backend-Anwendung
 image: /drawio/1-Problemstellung-Ziel.drawio.svg
 notes:
-  - Was? <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow
-  - Wie? <br> Fachlichkeit sichtbar machen und Architektur anpassen
-  - Ausnahme? <br>  einfach CRUD-App
+  - __Was?|2000__ <br> Verständliche Namen, klare Zuständigkeiten und Call-Flow
+  - __Wie?|2000__ <br> Fachlichkeit sichtbar machen und Architektur anpassen
+  - ((Ausnahme?|4000)) <br>  einfach CRUD-App
 ---
 
 ---
@@ -74,7 +87,7 @@ heading: Fachsprache im Code abbilden
 subtitle: Namensgebung gemäß Fachexperten
 image: /drawio/2-Fachsprache-im-Code-abbilden.drawio.svg
 notes:
-  - Mit Fachexperten reden (+ Glossar)
+  - Mit Fachexperten __reden|2000__ (+ Glossar)
   - Nomen und Verben fachlich (+ deutsch), z.B. Buch ausleihen, statt update Book
   - kein mentales Mapping mehr, Missverständnisse reduzieren
   - 'DDD: "Ubiquitous Language"'
@@ -92,9 +105,9 @@ heading: Äußere Struktur schaffen
 subtitle: Fachliche Module schneiden
 image: /drawio/3-Aeussere-Struktur-Fachliche-Module.drawio.svg
 notes:
-  - Gibt es fachliche Grenzen (Bounded Contexts)?
+  - Gibt es fachliche Grenzen (__Bounded Contexts|2000__)?
   - Eigene top-level Packages, z.B. „Bestellung" oder „Lieferung"
-  - Spring Modulith prüft Grenzen
+  - Spring __Modulith|4000__ prüft Grenzen
   - Microservices?
   - 'DDD: "Strategisches Design"'
 ---
@@ -122,8 +135,8 @@ heading: Innere Struktur schaffen
 subtitle: Logik aus Service-Klassen herausziehen
 image: /drawio/4-Innere-Struktur-Logik-herausziehen.drawio.svg
 notes:
-  - Orchestrierung in Use Cases verschieben
-  - Validierungsregeln in Entities verschieben
+  - __Orchestrierung|2000__ in Use Cases verschieben
+  - __Validierungsregeln|4000__ in Entities verschieben
   - übrig bleiben kleine Domain-Services
   - "Vorteil: klare Zuständigkeiten, nachvollziehbarer Call-Flow"
 ---
@@ -135,7 +148,7 @@ subtitle: Domain modellieren
 image: /drawio/4-Innere-Struktur-Domain-modellieren.drawio.svg
 notes:
   - "bereits da: Logik in Entity und fachliche Namen für Methoden (keine Setter)"
-  - Einführung von Value Objects, z.B. „Geld" oder „EmailAdresse"
+  - Einführung von __Value Objects|2000__ , z.B. „Geld" oder „EmailAdresse"
   - Aggregates schneiden
   - 'DDD: "Taktisches Design"'
 ---
@@ -147,7 +160,7 @@ subtitle: Domain-driven REST-API
 image: /drawio/4-Innere-Struktur-Action-API.drawio.svg
 notes:
   - Trigger der Use Cases über Action-Endpunkte
-  - Verben nutzen statt 100%-RESTful z.B. /publish
+  - __Verben|2000__  nutzen statt 100%-RESTful z.B. /publish
   - Fachlichkeit statt CRUD
   - Prozesse statt Resourcen/Daten
   - Commands in CQRS
@@ -178,7 +191,7 @@ image: /drawio/5-Kopplung-an-Technik-entfernen-Verbindungen.drawio.svg
 notes:
   - Eingehende Aufrufe sind unproblematisch (API zu Business)
   - Ausgehende Aufrufe erzeugen Kopplung an Technik (Business zu Persistenz bzw Service-Client)
-  - "Lösung: Abhängigkeiten umdrehen (DIP)"
+  - "Lösung: Abhängigkeiten umdrehen (__DIP|2000__)"
 ---
 
 ---
@@ -202,7 +215,7 @@ notes:
   - Die Entities hängen noch von der Infrastruktur ab (zb JPA)
   - Entities & Repositories auftrennen
   - Mapping notwendig!
-  - Code wird aufgebläht (Dopplungen)
+  - Code wird __aufgebläht|2000__ (Dopplungen)
 ---
 
 ---
@@ -259,7 +272,7 @@ notes:
 ---
 layout: image-slide
 heading: Fazit
-subtitle: "Empfehlung: einfach starten"
+subtitle: "Empfehlung: __einfach starten|2000__"
 image: /drawio/6-Fazit-Empfehlung-Robin.drawio.svg
 notes:
   - Module einführen
@@ -268,6 +281,17 @@ notes:
   - Kopplung an Spring Boot ist in Ordnung, Entity nicht auftrennen, aber mit Logik
   - Fachliche Namen für Klassen und Methoden
 ---
+
+<template #overlay>
+  <FancyArrow
+    from="[data-id=subtitle-anchor]@right"
+    to="[data-id=notes-box]@top-left"
+    color="orange"
+    width="3"
+    duration="2000"
+    delay="4000"
+  />
+</template>
 
 ---
 layout: blue

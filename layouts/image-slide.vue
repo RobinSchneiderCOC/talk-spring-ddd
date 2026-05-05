@@ -1,13 +1,6 @@
 <script setup lang="ts">
 const base = import.meta.env.BASE_URL
 defineProps<{ heading: string; subtitle?: string; image: string; notes?: string[] }>()
-
-function linkify(text: string) {
-  return text.replace(
-    /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank" class="opacity-70">$1</a>'
-  )
-}
 </script>
 
 <template>
@@ -16,7 +9,12 @@ function linkify(text: string) {
       <div class="flex items-start gap-6">
         <div class="flex-[2]">
           <h2 class="text-2xl font-bold leading-none">{{ heading }}</h2>
-          <p v-if="subtitle" class="text-base !mt-0 opacity-60">{{ subtitle }}</p>
+          <slot name="subtitle">
+            <p v-if="subtitle" data-id="subtitle" class="text-base !mt-0 text-slate-500 dark:text-slate-400 w-fit">
+              <AnnotatedText :text="subtitle" />
+              <span data-id="subtitle-anchor" class="inline-block ml-4 w-0 h-0 opacity-0"></span>
+            </p>
+          </slot>
         </div>
         <div class="w-1/4 flex justify-center">
           <img :src="`${base}images/coc-logo-blue.png`" class="h-10 dark:hidden" />
@@ -24,15 +22,18 @@ function linkify(text: string) {
         </div>
       </div>
       <div class="relative flex flex-1 gap-6 mt-6">
-        <div class="flex-[2] flex flex-col gap-4">
-          <img :src="`${base}${image.replace(/^\//, '')}`" class="w-[80%] h-[80%] object-contain object-left dark:invert" style="color-scheme: light" />
+        <div data-id="img-area" class="flex-[2] flex flex-col gap-4">
+          <img data-id="svg-image" :src="`${base}${image.replace(/^\//, '')}`" class="w-[80%] h-[80%] object-contain object-left dark:invert" style="color-scheme: light" />
         </div>
-        <div class="relative w-1/4 self-start border-2 border-slate-300 rounded-2xl p-5 flex flex-col gap-4 text-xs text-gray-800 dark:text-white dark:border-white/30">
+        <div data-id="notes-box" class="relative w-1/4 self-start border-2 border-slate-300 rounded-2xl p-5 flex flex-col gap-4 text-xs text-gray-800 dark:text-white dark:border-white/30">
           <ContentList v-if="notes">
-            <li v-for="item in notes" :key="item" v-html="linkify(item)" />
+            <li v-for="(item, i) in notes" :key="item" :data-id="i === 0 ? 'first-note' : undefined">
+              <AnnotatedText :text="item" />
+            </li>
           </ContentList>
-          <slot v-else />
+          <slot v-else name="content" />
         </div>
+        <slot name="overlay" />
       </div>
     </div>
   </div>
