@@ -23,14 +23,16 @@ layout: blue
 
 # Agenda
 
-<ol class="agenda-list">
-  <li style="animation-delay: 2s">Problemstellung</li>
-  <li style="animation-delay: 6s">Fachsprache im Code abbilden</li>
-  <li style="animation-delay: 10s">Äußere Struktur schaffen</li>
-  <li style="animation-delay: 14s">Innere Struktur schaffen</li>
-  <li style="animation-delay: 18s">Kopplung an Technik entfernen</li>
-  <li style="animation-delay: 22s">Fazit</li>
-</ol>
+<v-clicks>
+
+1. Problemstellung
+2. Fachsprache im Code abbilden
+3. Äußere Struktur schaffen
+4. Innere Struktur schaffen
+5. Kopplung an Technik entfernen
+6. Fazit
+
+</v-clicks>
 
 ---
 layout: blue
